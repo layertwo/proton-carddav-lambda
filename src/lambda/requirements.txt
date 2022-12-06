@@ -5,4 +5,4 @@ pyopenssl==22.1.0
 gnupg==2.3.1
 black==22.10.0
 isort==5.10.1
-pyproject-flake8==5.0.4.post1
+pyproject-flake8==6.0.0
