@@ -17,5 +17,5 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-      commit-message:
-        prefix: "[ci skip]"
+    commit-message:
+      prefix: "[ci skip]"
