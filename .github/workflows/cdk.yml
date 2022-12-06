@@ -18,5 +18,6 @@ jobs:
       with:
         node-version: 18.x
         cache: 'npm'
+        cache-dependency-path: 'cdk/package-lock.json'
     - run: npm install
     - run: cdk synth
