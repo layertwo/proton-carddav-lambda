@@ -24,7 +24,7 @@
     "@typescript-eslint/parser": "^5.45.1"
   },
   "dependencies": {
-    "aws-cdk": "2.52.0",
+    "aws-cdk": "2.53.0",
     "aws-cdk-lib": "2.53.0",
     "@aws-cdk/aws-apigatewayv2-alpha": "2.52.0-alpha.0",
     "@aws-cdk/aws-apigatewayv2-integrations-alpha": "2.52.0-alpha.0",
