@@ -7,8 +7,9 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "test": "jest",
+    "test": "npm run-script check-format && jest --verbose --passWithNoTests",
     "cdk": "cdk",
+    "check-format": "eslint --ext ts lib",
     "format": "eslint --fix --ext ts lib"
   },
   "devDependencies": {
