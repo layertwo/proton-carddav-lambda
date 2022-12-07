@@ -21,6 +21,7 @@ module.exports = {
         "@typescript-eslint/func-call-spacing": ["error"],
         "eol-last": ["error", "always"],
         "@typescript-eslint/explicit-function-return-type":["error"],
+        "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 0 }],
         "max-len": ["error", {
           code: 100,
           ignoreUrls: true,

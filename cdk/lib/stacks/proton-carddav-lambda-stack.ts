@@ -7,7 +7,7 @@ import {HttpLambdaIntegration} from "@aws-cdk/aws-apigatewayv2-integrations-alph
 import path = require("path");
 
 function buildLambda(scope: Construct, name: string): DockerImageFunction {
-    const func = new DockerImageFunction(scope, name ,{
+    const func = new DockerImageFunction(scope, name, {
         functionName: name,
         code: DockerImageCode.fromImageAsset(path.join(__dirname, "../../../src/lambda/"), {
             entrypoint: ["/lambda-entrypoint.sh"],
@@ -32,7 +32,7 @@ export class ProtonCarddavStack extends Stack {
 
         this.httpApi = this.buildHttpApi();
         this.carddavLambda = this.buildCarddavLambda();
-        this.buildHttpRoutes();
+        // this.buildHttpRoutes();
     }
 
     private buildHttpApi(): HttpApi {
