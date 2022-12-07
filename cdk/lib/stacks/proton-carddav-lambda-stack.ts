@@ -1,4 +1,4 @@
-import {Stack, StackProps} from "aws-cdk-lib";
+import {Stack, StackProps, Duration} from "aws-cdk-lib";
 import {Construct} from "constructs";
 import {ManagedPolicy} from "aws-cdk-lib/aws-iam";
 import {DockerImageFunction, DockerImageCode} from "aws-cdk-lib/aws-lambda";
@@ -9,9 +9,8 @@ import path = require("path");
 function buildLambda(scope: Construct, name: string): DockerImageFunction {
     const func = new DockerImageFunction(scope, name, {
         functionName: name,
-        code: DockerImageCode.fromImageAsset(path.join(__dirname, "../../../src/lambda/"), {
-            entrypoint: ["/lambda-entrypoint.sh"],
-        }),
+        code: DockerImageCode.fromImageAsset(path.join(__dirname, "../../../lambda/")),
+        timeout: Duration.minutes(1),
     });
     if (func.role != undefined) {
         func.role.addManagedPolicy(
@@ -30,7 +29,7 @@ export class ProtonCarddavStack extends Stack {
     constructor(scope: Construct, id: string, props?: StackProps) {
         super(scope, id, props);
 
-        this.httpApi = this.buildHttpApi();
+        // this.httpApi = this.buildHttpApi();
         this.carddavLambda = this.buildCarddavLambda();
         // this.buildHttpRoutes();
     }
