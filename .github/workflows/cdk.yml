@@ -20,5 +20,5 @@ jobs:
         cache: 'npm'
         cache-dependency-path: 'cdk/package-lock.json'
     - run: npm install
-    - run: npm run cdk synth
+    - run: npx cdk synth
     - run: npm run test
