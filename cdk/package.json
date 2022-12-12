@@ -25,9 +25,9 @@
   },
   "dependencies": {
     "aws-cdk": "2.54.0",
-    "aws-cdk-lib": "2.53.0",
-    "@aws-cdk/aws-apigatewayv2-alpha": "2.52.0-alpha.0",
-    "@aws-cdk/aws-apigatewayv2-integrations-alpha": "2.52.0-alpha.0",
+    "aws-cdk-lib": "2.54.0",
+    "@aws-cdk/aws-apigatewayv2-alpha": "2.54.0-alpha.0",
+    "@aws-cdk/aws-apigatewayv2-integrations-alpha": "2.54.0-alpha.0",
     "constructs": "^10.1.187",
     "path": "^0.12.7",
     "source-map-support": "^0.5.21"
