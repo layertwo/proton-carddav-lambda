@@ -12,7 +12,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/cdk/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
