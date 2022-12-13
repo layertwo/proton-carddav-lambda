@@ -2,6 +2,7 @@
 line_length = 100
 
 [tool.isort]
+known_first_party = "app"
 profile = "black"
 line_length = 100
 multi_line_output = 3
@@ -17,3 +18,9 @@ extend-ignore = ["E203"]
 exclude = [".git", "venv", "cdk.out", "__pycache__"]
 max-complexity = 10
 max-line-length = 100
+
+[tool.mypy]
+follow_imports = "normal"
+ignore_missing_imports = true
+show_traceback = true
+cache_dir = "/dev/null"
