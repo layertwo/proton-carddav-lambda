@@ -8,7 +8,7 @@ COPY requirements.txt .
 RUN pip3 install -r requirements.txt
 RUN pip3 install git+https://github.com/ProtonMail/proton-python-client.git
 
-COPY app/* ${LAMBDA_TASK_ROOT}
+COPY app ${LAMBDA_TASK_ROOT}
 
 # TODO
 # ENTRYPOINT [ "/usr/local/bin/python", "-m", "awslambdaric" ]
