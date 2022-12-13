@@ -1,7 +1,10 @@
 import os
-from functools import cached_property
+from functools import cached_property, lru_cache
 
-from boto3 import SecretsManager, Session
+from boto3 import Session
+
+from app.services.proton import ProtonClient
+from app.services.secrets_manager import SecretsAdapter
 
 
 class ConfigProvider:
@@ -12,6 +15,10 @@ class ConfigProvider:
     @cached_property
     def aws_region(self) -> str:
         return os.environ["AWS_REGION"]
+
+    @cached_property
+    def is_lambda(self) -> bool:
+        return "LAMBDA_TASK_ROOT" in os.environ
 
 
 class ServiceProvider:
@@ -29,5 +36,20 @@ class ServiceProvider:
         )
 
     @cached_property
-    def secret_client(self) -> SecretsManager:
-        return self.aws_session.client("secretsmanager")
+    def secrets_adapter(self) -> SecretsAdapter:
+        return SecretsAdapter(aws_session=self.aws_session)
+
+    @cached_property
+    def proton_client(self) -> ProtonClient:
+        username = self.secrets_adapter.get_secret_value(
+            secret_name=self.config.secret_arn, value="username"
+        )
+        password = self.secrets_adapter.get_secret_value(
+            secret_name=self.config.secret_arn, value="password"
+        )
+        return ProtonClient(username, password)
+
+
+@lru_cache()
+def create_service_provider():
+    return ServiceProvider()
