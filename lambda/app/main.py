@@ -1,6 +1,6 @@
-from typing import Dict, Any
 import logging
 import sys
+from typing import Any, Dict
 
 from aws_lambda_context import LambdaContext, LambdaDict
 
