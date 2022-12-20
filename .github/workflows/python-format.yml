@@ -16,5 +16,5 @@ jobs:
       run: black --check lambda/
     - name: Isort
       run: isort --check lambda/
-    - name: Mypy
-      run: mypy lambda/
+#    - name: Mypy
+#      run: mypy lambda/
